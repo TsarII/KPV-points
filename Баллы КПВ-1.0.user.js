@@ -5,6 +5,8 @@
 // @version      1.0
 // @match        http*://*.catwar.net/*
 // @match        http*://*.catwar.su/*
+// @updateURL    https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
+// @downloadURL  https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
 // @grant        none
 // ==/UserScript==
 
