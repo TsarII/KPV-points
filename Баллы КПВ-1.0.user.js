@@ -2,7 +2,7 @@
 // @name         KPV points
 // @namespace    http://tampermonkey.net/
 // @author       Цари / Ритуал [1241910]
-// @version      1.0
+// @version      2.0
 // @match        http*://*.catwar.net/*
 // @match        http*://*.catwar.su/*
 // @updateURL    https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
