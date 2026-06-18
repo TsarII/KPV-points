@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Баллы КПВ
+// @name         KPV points
 // @namespace    http://tampermonkey.net/
 // @author       Цари / Ритуал [1241910]
 // @version      1.0
@@ -31,6 +31,7 @@
         "157": "https://i.ibb.co/prs25cxg/3.png",
         "666": "https://i.ibb.co/prs25cxg/3.png",
         "163": "https://i.ibb.co/prs25cxg/3.png",
+        "166": "https://i.ibb.co/prs25cxg/3.png",
         "167": "https://i.ibb.co/prs25cxg/3.png",
         "178": "https://i.ibb.co/prs25cxg/3.png",
         "251": "https://i.ibb.co/prs25cxg/3.png",
@@ -68,6 +69,59 @@
         // 8 баллов
         "663": "https://i.ibb.co/Kj1TCzDV/8.png"
     };
+
+    const medalPoints = {
+
+    // 1 балл
+    665: 1,
+    155: 1,
+    154: 1,
+    668: 1,
+    839: 1,
+
+    // 3 балла
+    162: 3,
+    166: 3,
+    157: 3,
+    666: 3,
+    163: 3,
+    167: 3,
+    178: 3,
+    251: 3,
+    667: 3,
+    932: 3,
+    1020: 3,
+    2644: 3,
+    2878: 3,
+    3350: 3,
+    3483: 3,
+    894: 3,
+    2762: 3,
+    2780: 3,
+    5027: 3,
+
+    // 4 балла
+    161: 4,
+    160: 4,
+    164: 4,
+    1097: 4,
+    3835: 4,
+    4337: 4,
+
+    // 6 баллов
+    252: 6,
+
+    // 7 баллов
+    664: 7,
+    422: 7,
+    280: 7,
+    168: 7,
+    2656: 7,
+    2655: 7,
+
+    // 8 баллов
+    663: 8
+};
 
     // =========================
     // ПАМЯТНЫЕ ПРЕДМЕТЫ
@@ -156,6 +210,89 @@
         "Что такое сон?": "https://i.ibb.co/nqkXnVtB/5.png"
     };
 
+    const relicPoints = {
+
+    // 0 баллов
+    "Властелин всех двух стихий": 0,
+    "Отколовшаяся сосулька": 0,
+    "Окроплённое перо": 0,
+    "Льдинка с отпечатком лапы": 0,
+    "Визитка": 0,
+    "Сверкающая чешуйка": 0,
+    "Тот, кто держал остриё": 0,
+    "Разбитое зеркало": 0,
+    "Ягодный след": 0,
+    "Старый кулон": 0,
+    "Маска": 0,
+    "Меч и курочка": 0,
+    "Тлеющий уголёк": 0,
+    "Деревянный солдатик": 0,
+    "Хранитель Очага": 0,
+    "Окаменелое гнездо": 0,
+    "Подарок": 0,
+    "Конверт": 0,
+    "Падение": 0,
+    "Гнилое яблочко": 0,
+    "Тьма багрового прошлого": 0,
+    "История о принце": 0,
+    "Цилиндр Щелкунчика": 0,
+    "Та, кто держала остриё": 0,
+
+    // 1 балл
+    "В чём смысл жизни?": 1,
+    "Вестник новостей": 1,
+    "Спаситель от жажды": 1,
+    "Всезнайка": 1,
+    "Резное перышко": 1,
+    "Чудной камушек": 1,
+    "Меховый друг": 1,
+    "Командный дух!": 1,
+    "Воспоминания о работе": 1,
+    "Перо сойки": 1,
+    "Расколотый молнией": 1,
+    "Замёрзший клочок меха": 1,
+    "Свинка-копилка": 1,
+    "Странная рыба": 1,
+    "Клыки стихии": 1,
+    "Пылающее перо": 1,
+    "Ледяной череп": 1,
+
+    // 2 балла
+    "Искатель приключений": 2,
+    "Всё ещё ребенок": 2,
+    "Истинный лидер": 2,
+    "Знающий себя": 2,
+    "Создатель чудес": 2,
+    "Окрылённый страхом": 2,
+    "Бесстрашный туннелер": 2,
+    "Горьковато-пряный корень": 2,
+    "Чудной трофей": 2,
+    "Прошедший через пекло": 2,
+
+    // 3 балла
+    "Я люблю скалы!": 3,
+    "Орлиный глаз": 3,
+    "Точно-Не-Речной": 3,
+    "Ах, жизнь моя жестянка!": 3,
+    "Паучий враг": 3,
+    "Вдохновитель юных": 3,
+    "После стольких лун": 3,
+    "Бросивший вызов Духам": 3,
+    "Первый учитель": 3,
+    "Подарок вод": 3,
+    "Хранитель очага": 3,
+
+    // 4 балла
+    "Благодетель": 4,
+    "Не чувствующий лап": 4,
+    "Тишину, пожалуйста!": 4,
+    "Где моя зарплата?": 4,
+    "Сладко естся, плохо спится": 4,
+
+    // 5 баллов
+    "Что такое сон?": 5
+};
+
     function addOverlayToImage(img, overlayUrl) {
 
         if (img.dataset.overlayAdded) return;
@@ -225,16 +362,108 @@
         });
     }
 
-    function processAll() {
-        addMedalOverlays();
-        addRelicOverlays();
+function processAll() {
+    addMedalOverlays();
+    addRelicOverlays();
+}
+
+processAll();
+showKPVPoints();
+
+new MutationObserver(() => {
+    processAll();
+}).observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+function showKPVPoints() {
+
+    let medalTotal = 0;
+    let relicTotal = 0;
+
+    // Медали
+    document.querySelectorAll('img[src*="medal/"]').forEach(img => {
+        const match = img.src.match(/medal\/(\d+)\.png/i);
+        if (!match) return;
+
+        const id = match[1];
+        medalTotal += medalPoints[id] || 0;
+    });
+
+    // Предметы
+    document.querySelectorAll('.blocks b').forEach(el => {
+        const title = el.textContent
+            .replace(/[«»]/g, '')
+            .trim();
+
+        relicTotal += relicPoints[title] || 0;
+    });
+
+    const total = medalTotal + relicTotal;
+
+    let panel = document.getElementById('kpv-points-panel');
+
+if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'kpv-points-panel';
+
+panel.style.cssText = `
+    display:inline-block;
+    margin:0;
+    padding:12px 16px;
+    background:rgba(245,240,230,.95);
+    border:2px solid #a98a5d;
+    border-radius:14px;
+    box-shadow:0 1px 4px rgba(0,0,0,.15);
+    box-sizing:border-box;
+    max-width:260px;
+`;
+
+    const siteTable = document.getElementById('site_table');
+    if (!siteTable) return;
+
+    siteTable.appendChild(panel);
+}
+
+
+
+   const lastMedal = [...document.querySelectorAll('img[src*="medal/"]')]
+    .filter(img => img.closest('#branch'))
+    .pop();
+
+if (lastMedal) {
+
+    let wrapper = document.getElementById('kpv-points-wrapper');
+
+    if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.id = 'kpv-points-wrapper';
+
+        wrapper.style.cssText = `
+            width:100%;
+            clear:both;
+            margin-top:12px;
+            text-align:left;
+        `;
+
+        lastMedal.closest('#branch').appendChild(wrapper);
     }
 
-    processAll();
+    wrapper.appendChild(panel);
+}
 
-    new MutationObserver(processAll).observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+    panel.innerHTML = `
+        <div style="font-size:18px;font-weight:bold;margin-bottom:8px;">
+            🏆 Баллы КПВ
+        </div>
+
+        <div><b>Всего:</b> ${total}</div>
+        <div><b>Медали:</b> ${medalTotal}</div>
+        <div><b>Предметы:</b> ${relicTotal}</div>
+    `;
+}
+
+
 
 })();
