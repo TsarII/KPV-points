@@ -2,9 +2,9 @@
 // @name         KPV points
 // @namespace    http://tampermonkey.net/
 // @author       Цари / Ритуал [1241910]
-// @version      2.0
-// @match        http*://*.catwar.net/*
-// @match        http*://*.catwar.su/*
+// @version      2.1
+// @match        http*://*.catwar.net/cat*
+// @match        http*://*.catwar.su/cat*
 // @updateURL    https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
 // @downloadURL  https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
 // @grant        none
@@ -12,7 +12,8 @@
 
 (function() {
     'use strict';
-
+if (!/^\/cat\d+$/.test(location.pathname)) return;
+    
     // =========================
     // МЕДАЛИ
     // =========================
