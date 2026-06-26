@@ -2,7 +2,7 @@
 // @name         KPV points
 // @namespace    http://tampermonkey.net/
 // @author       Цари / Ритуал [1241910]
-// @version      2.2
+// @version      2.3
 // @match        *://*.catwar.net/cat*
 // @match        *://*.catwar.su/cat*
 // @updateURL    https://raw.githubusercontent.com/TsarII/KPV-points/main/Баллы%20КПВ-1.0.user.js
@@ -16,6 +16,7 @@
     if (!/^\/cat(\d+|\/[^/]+)$/.test(location.pathname)) {
         return;
     }
+
 
 
     // =========================
@@ -414,15 +415,16 @@ if (!panel) {
     panel.id = 'kpv-points-panel';
 
 panel.style.cssText = `
-    display:inline-block;
-    margin:0;
-    padding:12px 16px;
-    background:rgba(245,240,230,.95);
-    border:2px solid #a98a5d;
-    border-radius:14px;
-    box-shadow:0 1px 4px rgba(0,0,0,.15);
-    box-sizing:border-box;
-    max-width:260px;
+    display: inline-block;
+    margin: 15px 0 0 10px;
+    padding: 12px 16px;
+    background: rgba(245,240,230,.95);
+    border: 2px solid #a98a5d;
+    border-radius: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+    box-sizing: border-box;
+    max-width: calc(100% - 20px);
+    color: #000;
 `;
 
     const siteTable = document.getElementById('site_table');
